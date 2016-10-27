@@ -22,7 +22,7 @@ define( function( require ) {
   var AppendageRangeMaps = require( 'JOHN_TRAVOLTAGE/john-travoltage/AppendageRangeMaps' );
   var AppendageNode = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/AppendageNode' );
   var SparkNode = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/SparkNode' );
-  var ElectronLayerNode = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/ElectronLayerNode' );
+  // var ElectronLayerNode = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/ElectronLayerNode' );
   var Shape = require( 'KITE/Shape' );
   var Path = require( 'SCENERY/nodes/Path' );
   var HSlider = require( 'SUN/HSlider' );
@@ -37,14 +37,14 @@ define( function( require ) {
   var HBox = require( 'SCENERY/nodes/HBox' );
   var JohnTravoltageQueryParameters = require( 'JOHN_TRAVOLTAGE/john-travoltage/JohnTravoltageQueryParameters' );
   var JohnTravoltageAudio = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/JohnTravoltageAudio' );
-  var JohnTravoltageModel = require( 'JOHN_TRAVOLTAGE/john-travoltage/model/JohnTravoltageModel' );
+  // var JohnTravoltageModel = require( 'JOHN_TRAVOLTAGE/john-travoltage/model/JohnTravoltageModel' );
   var AccessiblePeer = require( 'SCENERY/accessibility/AccessiblePeer' );
   var johnTravoltage = require( 'JOHN_TRAVOLTAGE/johnTravoltage' );
 
   // images
   var arm = require( 'image!JOHN_TRAVOLTAGE/arm.png' );
   var leg = require( 'image!JOHN_TRAVOLTAGE/leg.png' );
-  var backgroundImage = require( 'image!JOHN_TRAVOLTAGE/voltage-black.png')
+  var backgroundImage = require( 'image!JOHN_TRAVOLTAGE/voltage-black.png' );
 
   // constants
   var SONIFICATION_CONTROL = JohnTravoltageQueryParameters.SONIFICATION;
@@ -190,11 +190,11 @@ define( function( require ) {
     //Use a layer for electrons so it has only one pickable flag, perhaps may improve performance compared to iterating
     //over all electrons to see if they are pickable?
     //Split layers before particle layer for performance
-    var electronLayer = new ElectronLayerNode( model.electrons, JohnTravoltageModel.MAX_ELECTRONS, model.leg, model.arm, {
-      layerSplit: true,
-      pickable: true,
-      peerID: options.peerIDs.status
-    } );
+    // var electronLayer = new ElectronLayerNode( model.electrons, JohnTravoltageModel.MAX_ELECTRONS, model.leg, model.arm, {
+    //   layerSplit: true,
+    //   pickable: true,
+    //   peerID: options.peerIDs.status
+    // } );
     // accessibleFormNode.addChild( electronLayer );
 
     // Scene description

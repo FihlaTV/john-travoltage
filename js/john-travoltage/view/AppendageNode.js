@@ -167,7 +167,7 @@ define( function( require ) {
         x: appendage.position.x - dx,
         y: appendage.position.y - dy,
         pickable: false } );
-      this.addChild( rotatePosition )
+      this.addChild( rotatePosition );
     }
 
     var focusCircle = new Circle( imageNode.width / 2, { stroke: 'rgba(250,40,135,0.9)', lineWidth: 5 } );

@@ -15,9 +15,9 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Pattern = require( 'SCENERY/util/Pattern' );
   var Image = require( 'SCENERY/nodes/Image' );
-  var Vector2 = require( 'DOT/Vector2' );
-  var Property = require( 'AXON/Property' );
-  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
+  // var Vector2 = require( 'DOT/Vector2' );
+  // var Property = require( 'AXON/Property' );
+  // var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var johnTravoltage = require( 'JOHN_TRAVOLTAGE/johnTravoltage' );
 
   // images
@@ -25,8 +25,8 @@ define( function( require ) {
   var floor = require( 'image!JOHN_TRAVOLTAGE/floor.png' );
   var rug = require( 'image!JOHN_TRAVOLTAGE/rug.png' );
   var body = require( 'image!JOHN_TRAVOLTAGE/body.png' );
-  var face = require( 'image!JOHN_TRAVOLTAGE/face.png' );
-  var head = require( 'image!JOHN_TRAVOLTAGE/head.png' );
+  // var face = require( 'image!JOHN_TRAVOLTAGE/face.png' );
+  // var head = require( 'image!JOHN_TRAVOLTAGE/head.png' );
   var door = require( 'image!JOHN_TRAVOLTAGE/door.png' );
   var window = require( 'image!JOHN_TRAVOLTAGE/window.png' );
 
@@ -77,7 +77,7 @@ define( function( require ) {
     //   y: 65.33
     // } );
 
-    var imageLocationProperty = new Property( new Vector2( 0, 0 ) );
+    // var imageLocationProperty = new Property( new Vector2( 0, 0 ) );
     // bodyImage.addInputListener( new MovableDragHandler( imageLocationProperty ) );
 
     // imageLocationProperty.link( function( position ) {
