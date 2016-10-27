@@ -19,7 +19,8 @@ define( function( require ) {
     PropertySet.call( this, { angle: -0.5 } );
 
     //Arm pivot (elbow point) sampled using DebugPositions.js
-    this.position = new Vector2( 423.6179673321235, 229.84969476984 );
+    this.position = new Vector2( 435, 213 );
+    // this.position = new Vector2( 423.6179673321235, 229.84969476984 );
 
     //Exact finger location sampled using DebugPositions.js
     var finger = new Vector2( 534.3076703633706, 206.63766358806117 );

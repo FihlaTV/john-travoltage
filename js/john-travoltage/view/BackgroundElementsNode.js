@@ -15,6 +15,9 @@ define( function( require ) {
   var Rectangle = require( 'SCENERY/nodes/Rectangle' );
   var Pattern = require( 'SCENERY/util/Pattern' );
   var Image = require( 'SCENERY/nodes/Image' );
+  var Vector2 = require( 'DOT/Vector2' );
+  var Property = require( 'AXON/Property' );
+  var MovableDragHandler = require( 'SCENERY_PHET/input/MovableDragHandler' );
   var johnTravoltage = require( 'JOHN_TRAVOLTAGE/johnTravoltage' );
 
   // images
@@ -23,12 +26,13 @@ define( function( require ) {
   var rug = require( 'image!JOHN_TRAVOLTAGE/rug.png' );
   var body = require( 'image!JOHN_TRAVOLTAGE/body.png' );
   var face = require( 'image!JOHN_TRAVOLTAGE/face.png' );
+  var head = require( 'image!JOHN_TRAVOLTAGE/head.png' );
   var door = require( 'image!JOHN_TRAVOLTAGE/door.png' );
   var window = require( 'image!JOHN_TRAVOLTAGE/window.png' );
 
   function BackgroundElementsNode() {
 
-    Node.call( this, { pickable: false } );
+    Node.call( this, { pickable: true } );
 
     //wallpapers
     this.addChild( new Rectangle( -1000, -300, 3000, 1100, {
@@ -61,21 +65,28 @@ define( function( require ) {
       scale: 0.785
     } ) );
 
-    // add the body image
-    this.addChild( new Image( body, {
-      x: 260,
-      y: 60,
-      scale: 0.85
-    } ) );
+    var bodyImage = new Image( body, {
+      x: 291.744,
+      y: 62.299,
+      scale: 0.74
+    } );
 
-    // add the face image, this is temporary and will be updated soon
-    // see https://github.com/phetsims/john-travoltage/issues/83
-    // position and scale determined empirically
-    this.addChild( new Image( face, {
-      x: 381,
-      y: 61,
-      scale: 1.20
-    } ) );
+    // var headImage = new Image( head, {
+    //   scale: 0.72,
+    //   x: 361.09,
+    //   y: 65.33
+    // } );
+
+    var imageLocationProperty = new Property( new Vector2( 0, 0 ) );
+    // bodyImage.addInputListener( new MovableDragHandler( imageLocationProperty ) );
+
+    // imageLocationProperty.link( function( position ) {
+    //   console.log( 'x ' + bodyImage.x )
+    //   console.log( 'y ' + bodyImage.y );
+    //   bodyImage.translation = position;
+    // } );
+
+    this.addChild( bodyImage );
   }
 
   johnTravoltage.register( 'BackgroundElementsNode', BackgroundElementsNode );

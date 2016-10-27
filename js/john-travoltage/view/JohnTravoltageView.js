@@ -25,12 +25,15 @@ define( function( require ) {
   var ElectronLayerNode = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/ElectronLayerNode' );
   var Shape = require( 'KITE/Shape' );
   var Path = require( 'SCENERY/nodes/Path' );
+  var HSlider = require( 'SUN/HSlider' );
+  var Property = require( 'AXON/Property' );
   var Node = require( 'SCENERY/nodes/Node' );
   var SoundToggleButton = require( 'SCENERY_PHET/buttons/SoundToggleButton' );
   var ResetAllButton = require( 'SCENERY_PHET/buttons/ResetAllButton' );
   var DebugPositions = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/DebugPositions' );
   var Circle = require( 'SCENERY/nodes/Circle' );
   var platform = require( 'PHET_CORE/platform' );
+  var Image = require( 'SCENERY/nodes/Image' );
   var HBox = require( 'SCENERY/nodes/HBox' );
   var JohnTravoltageQueryParameters = require( 'JOHN_TRAVOLTAGE/john-travoltage/JohnTravoltageQueryParameters' );
   var JohnTravoltageAudio = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/JohnTravoltageAudio' );
@@ -41,6 +44,7 @@ define( function( require ) {
   // images
   var arm = require( 'image!JOHN_TRAVOLTAGE/arm.png' );
   var leg = require( 'image!JOHN_TRAVOLTAGE/leg.png' );
+  var backgroundImage = require( 'image!JOHN_TRAVOLTAGE/voltage-black.png')
 
   // constants
   var SONIFICATION_CONTROL = JohnTravoltageQueryParameters.SONIFICATION;
@@ -86,7 +90,7 @@ define( function( require ) {
     this.addChild( new BackgroundElementsNode() );
 
     //Split layers after background for performance
-    this.addChild( new Node( { layerSplit: true, pickable: false } ) );
+    this.addChild( new Node( { layerSplit: true, pickable: true } ) );
 
     //add an form element to contain all controls
     var accessibleFormNode = new AccessibleFormNode();
@@ -95,9 +99,11 @@ define( function( require ) {
     //arm and leg - only interactive elements
     var legLabel = new AccessibleLabelNode( legSliderLabelString );
     accessibleFormNode.addChild(legLabel);
-    this.leg = new AppendageNode( model.leg, leg, 25, 28, Math.PI / 2 * 0.7, model.soundProperty,
+    this.leg = new AppendageNode( model.leg, leg, 20, 10, Math.PI / 2 * 0.7, model.soundProperty,
       AppendageRangeMaps.leg,
-      { controls: [ options.peerIDs.status ] }
+      { 
+        controls: [ options.peerIDs.status ]
+      }
     );
     legLabel.addChild( this.leg );
 
@@ -105,7 +111,7 @@ define( function( require ) {
     accessibleFormNode.addChild(armLabel);
     // the keyboardMidPointOffset was manually calculated as a radian offset that will trigger a discharge with the
     // minimum charge level.
-    this.arm = new AppendageNode( model.arm, arm, 4, 45, -0.1, model.soundProperty, AppendageRangeMaps.arm,
+    this.arm = new AppendageNode( model.arm, arm, 10, 32, -0.1, model.soundProperty, AppendageRangeMaps.arm,
       { keyboardMidPointOffset: 0.41, controls: [ options.peerIDs.status ] } );
     armLabel.addChild( this.arm );
 
@@ -186,10 +192,10 @@ define( function( require ) {
     //Split layers before particle layer for performance
     var electronLayer = new ElectronLayerNode( model.electrons, JohnTravoltageModel.MAX_ELECTRONS, model.leg, model.arm, {
       layerSplit: true,
-      pickable: false,
+      pickable: true,
       peerID: options.peerIDs.status
     } );
-    accessibleFormNode.addChild( electronLayer );
+    // accessibleFormNode.addChild( electronLayer );
 
     // Scene description
     var accessibleDescription = new AccessibleDescriptionNode( this.arm, this.leg, model.electrons, accessibleFormNode );
@@ -221,6 +227,15 @@ define( function( require ) {
 
       new DebugPositions().debugLineSegments( this );
     }
+
+    //Show the mock-up and a slider to change its transparency
+    var mockupOpacityProperty = new Property( 0.00 );
+    var mockImage = new Image( backgroundImage, { pickable: false } );
+    mockImage.scale( this.layoutBounds.width / mockImage.width, this.layoutBounds.height / mockImage.height );
+    mockupOpacityProperty.linkAttribute( mockImage, 'opacity' );
+    this.addChild( mockImage );
+    this.addChild( new HSlider( mockupOpacityProperty, { min: 0, max: 1 }, { top: 10, left: 10 } ) );
+
   }
 
   johnTravoltage.register( 'JohnTravoltageView', JohnTravoltageView );
@@ -258,7 +273,7 @@ define( function( require ) {
       var path = new Path( customShape, {
         stroke: 'green',
         lineWidth: 1,
-        pickable: false
+        pickable: true
       } );
       this.addChild( path );
 
@@ -271,7 +286,7 @@ define( function( require ) {
         path = new Path( customShape, {
           stroke: 'red',
           lineWidth: 1,
-          pickable: false,
+          pickable: true,
           x: 0,
           y: 0
         } );

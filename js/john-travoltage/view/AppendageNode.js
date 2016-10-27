@@ -53,7 +53,11 @@ define( function( require ) {
   function AppendageNode( appendage, image, dx, dy, angleOffset, soundEnabledProperty, rangeMap, options ) {
     var self = this;
 
-    Node.call( this, { cursor: 'pointer' } );
+    options = _.extend( {
+      cursor: 'pointer'
+    }, options );
+
+    Node.call( this );
 
     this.model = appendage;
     var angle = 0;
@@ -157,6 +161,13 @@ define( function( require ) {
 
       var mousePosition = new Circle( 7, { fill: 'blue', x: 0, y: 0, pickable: false } );
       this.addChild( mousePosition );
+
+      var rotatePosition = new Circle( 10, { 
+        fill: 'red',
+        x: appendage.position.x - dx,
+        y: appendage.position.y - dy,
+        pickable: false } );
+      this.addChild( rotatePosition )
     }
 
     var focusCircle = new Circle( imageNode.width / 2, { stroke: 'rgba(250,40,135,0.9)', lineWidth: 5 } );
