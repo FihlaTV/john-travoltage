@@ -1,5 +1,5 @@
 {
-  "comment": "# john-travoltage 1.6.0-pdomTransform.0 Mon Nov 05 2018 14:53:28 GMT-0500 (Eastern Standard Time)",
+  "comment": "# john-travoltage 1.6.0-pdomTransform.1 Mon Nov 05 2018 15:09:22 GMT-0500 (Eastern Standard Time)",
   "assert": {
     "sha": "928741cfc8fe804334d5b35292140314511f8678",
     "branch": "master"
@@ -21,7 +21,7 @@
     "branch": "master"
   },
   "john-travoltage": {
-    "sha": "70008f5b1ae356ecc603cd613d20f8649e921a0b",
+    "sha": "769762831f056c4de0554503ee2c9379d0db7a79",
     "branch": "pdomTransform"
   },
   "joist": {
@@ -65,7 +65,7 @@
     "branch": "master"
   },
   "scenery": {
-    "sha": "45965a2adc0d4a70443b2636676d08cc9da5655c",
+    "sha": "ad8474d852c0231291ddef797e70ebb0daa8d649",
     "branch": "pdom-transform"
   },
   "scenery-phet": {
@@ -77,7 +77,7 @@
     "branch": "master"
   },
   "sun": {
-    "sha": "a423abfbb72bdd39fe06c29f1b81b58f12e77c23",
+    "sha": "b891734089dc2c3052ccf7f6605e84fd5e32f54e",
     "branch": "master"
   },
   "tambo": {
