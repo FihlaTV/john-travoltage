@@ -22,6 +22,7 @@ define( require => {
   // modules
   const johnTravoltage = require( 'JOHN_TRAVOLTAGE/johnTravoltage' );
   const speechController = require( 'JOHN_TRAVOLTAGE/john-travoltage/view/speechController' );
+  const JohnTravoltageQueryParameters = require( 'JOHN_TRAVOLTAGE/john-travoltage/JohnTravoltageQueryParameters' );
   const vibrationManager = require( 'TAPPI/vibrationManager' );
   const VibrationPatterns = require( 'TAPPI/VibrationPatterns' );
   const Property = require( 'AXON/Property' );
@@ -73,10 +74,12 @@ define( require => {
           }
         } );
 
-        // this paradigm will not work while a screen reader is in use because the device intercepts
-        // pointer down gestures - instead we will use web speech to let the user know basic information about the sim
-        // NOTE: I notice that this adds quite a performance penalty in Chrome
-        speechController.initialize( model );
+        if ( JohnTravoltageQueryParameters.selfVoice ) {
+          // this paradigm will not work while a screen reader is in use because the device intercepts
+          // pointer down gestures - instead we will use web speech to let the user know basic information about the sim
+          // NOTE: I notice that this adds quite a performance penalty in Chrome
+          speechController.initialize( model );
+        }
       }
 
       // Vibration indicates successful interaction with different components.
