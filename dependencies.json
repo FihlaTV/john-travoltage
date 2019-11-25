@@ -1,5 +1,5 @@
 {
-  "comment": "# john-travoltage 1.6.0-noSelfVoice.0 Mon Nov 25 2019 12:32:58 GMT-0500 (Eastern Standard Time)",
+  "comment": "# john-travoltage 1.6.0-noSelfVoice.1 Mon Nov 25 2019 12:59:03 GMT-0500 (Eastern Standard Time)",
   "assert": {
     "sha": "bd6e3ed0a8b6fea73a4a176d5364809666833e58",
     "branch": "HEAD"
@@ -25,7 +25,7 @@
     "branch": "HEAD"
   },
   "john-travoltage": {
-    "sha": "e91feddce78727e1cc1d5b588e5b9d59151c6889",
+    "sha": "a4a0c2a91617ce6902d2104bb86163874c330220",
     "branch": "noSelfVoice"
   },
   "joist": {
