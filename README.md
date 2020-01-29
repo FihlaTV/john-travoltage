@@ -1,6 +1,6 @@
 John Travoltage
 =============
-"John Travoltage" is an educational simulation in HTML5, by <a href="https://visar.co.za/" target="_blank">PhET Interactive Simulations</a>
+"John Travoltage" is an educational simulation in HTML5, by <a href="https://visar.co.za/" target="_blank">VISAR Interactive Simulations</a>
 At VISAR LABS
 For a description of this simulation, associated resources, and a link to the published version,
 <a href="https://visar.co.za/john-travoltage" target="_blank">visit the simulation's web page</a>.
